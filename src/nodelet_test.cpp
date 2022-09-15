@@ -10,14 +10,13 @@
 
 int main(int argc, char **argv)
 {
+  ros::init(argc, argv, "subscriber_nodelet");
 
-    ros::init(argc, argv, "subscriber_nodelet");
+  nodelet::Loader nodelet;
+  nodelet::M_string remap(ros::names::getRemappings());
+  nodelet::V_string nargv;
+  std::string nodelet_name = ros::this_node::getName();
+  nodelet.load(nodelet_name, "acquisition/subscriber_nodelet", remap, nargv);
 
-    nodelet::Loader nodelet;
-    nodelet::M_string remap(ros::names::getRemappings());
-    nodelet::V_string nargv;
-    std::string nodelet_name = ros::this_node::getName();
-    nodelet.load(nodelet_name, "acquisition/subscriber_nodelet", remap, nargv);
-
-    return 0;
+  return 0;
 }

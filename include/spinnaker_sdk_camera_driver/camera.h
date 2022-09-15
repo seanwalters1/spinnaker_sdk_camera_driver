@@ -26,7 +26,8 @@ namespace acquisition {
         void begin_acquisition();
         void end_acquisition();
 
-        ImagePtr grab_frame();
+        ImagePtr grab_frame(bool& success);
+        bool grab_image(sensor_msgs::ImagePtr image);
         Mat grab_mat_frame();
         string get_time_stamp();
         int get_frame_id();

@@ -1,0 +1,18 @@
+cam_ids:
+- 00B09DDC46F0_C0A80187_FFFFFF00_C0A80101
+- 00B09DDCF5D9_C0A80188_FFFFFF00_C0A80101
+cam_aliases:
+- right
+- left
+master_cam: 00B09DDC46F0_C0A80187_FFFFFF00_C0A80101
+binning: 1 # going from 2 to 1 requires cameras to be unplugged and replugged
+color: false
+pixel_format: BayerRG16
+gev_scpd: 1
+exposure_time: 0
+skip: 20
+soft_framerate: 30
+
+#Camera info message details
+image_height: 800
+image_width: 1920

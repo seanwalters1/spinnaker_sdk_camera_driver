@@ -8,10 +8,9 @@ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 ###
 # camera Acquisition specific 
 ###
-#SET("OpenCV_DIR" "~/apps/opencv-2.4.13/")
-set(PROJECT_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/include" CACHE PATH "Project Include Directory")
-set(SPINNAKER_INCLUDE_DIR "/usr/include/spinnaker" CACHE PATH "Spinnaker Include Directory")
-set(SPINNAKER_LIB_DIR "/usr/lib" CACHE PATH "Spinnaker Libs Directory")
+set(PROJECT_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/include")
+set(SPINNAKER_INCLUDE_DIR "/opt/spinnaker/include/")
+set(SPINNAKER_LIB_DIR "/opt/spinnaker/lib")
 # set(yaml-cpp_DIR "~/apps/yaml-cpp" CACHE PATH "yaml-cpp Directory")
 set(CUDA_USE_STATIC_CUDA_RUNTIME  OFF)
 
@@ -24,9 +23,9 @@ find_package(catkin REQUIRED COMPONENTS
   sensor_msgs
   dynamic_reconfigure
   nodelet
+  camera_info_manager
+  diagnostic_updater
 )
-
-#find_package(PCL REQUIRED)
 
 ###
 # Acquisition specific

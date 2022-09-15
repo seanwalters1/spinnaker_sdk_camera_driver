@@ -9,24 +9,25 @@
 
 #include <nodelet/nodelet.h>
 #include "capture.h"
-namespace acquisition {
-    class capture_nodelet: public nodelet::Nodelet
+namespace acquisition
+{
+  class capture_nodelet: public nodelet::Nodelet
+  {
+
+  public:
+    capture_nodelet() {}
+    ~capture_nodelet()
     {
+      if (pubThread_)
+      {
+          pubThread_->interrupt();
+          pubThread_->join();
+      }
+    }
+    virtual void onInit();
 
-    public:
-        capture_nodelet(){}
-        ~capture_nodelet(){
-            if (pubThread_) {
-                pubThread_->interrupt();
-                pubThread_->join();
-            }
-        }
-        virtual void onInit();
-
-        boost::shared_ptr<Capture> inst_;
-        std::shared_ptr<boost::thread> pubThread_;
-
-    };
-
+    boost::shared_ptr<Capture> inst_;
+    std::shared_ptr<boost::thread> pubThread_;
+  };
 }
 

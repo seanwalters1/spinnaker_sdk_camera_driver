@@ -9,9 +9,9 @@
 
 void imageCallback(const sensor_msgs::ImageConstPtr& msg)
 {
-    sensor_msgs::Image a =*msg;
-    double times =a.header.stamp.toSec();
-    ROS_INFO_STREAM("THE DIFF IS :" << ros::Time::now().toSec() - times);
+  sensor_msgs::Image a =*msg;
+  double times =a.header.stamp.toSec();
+  ROS_INFO_STREAM("THE DIFF IS :" << ros::Time::now().toSec() - times);
 }
 
 int main(int argc, char **argv)

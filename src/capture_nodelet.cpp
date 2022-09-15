@@ -8,24 +8,11 @@
 
 namespace acquisition
 {
-
-    void capture_nodelet::onInit()
-    {
-        //spinners
-        //ros::AsyncSpinner spinner(0); // Use max cores possible for mt
-        //spinner.start();
-
-        NODELET_INFO("Initializing nodelet");
-        //acquisition::Capture cobj(getNodeHandle(), getPrivateNodeHandle());
-        inst_.reset(new Capture(getNodeHandle(), getPrivateNodeHandle()));
-        inst_->init_array();
-        pubThread_.reset(new boost::thread(boost::bind(&acquisition::Capture::run, inst_)));
-        // cobj.run();
-        //NODELET_INFO("Initializing nodelet");
-    }
-
-
-
+  void capture_nodelet::onInit()
+  {
+    NODELET_INFO("Initializing nodelet");
+    pubThread_.reset(new boost::thread(boost::bind(&acquisition::run_capture)));
+  }
 }
 
 PLUGINLIB_EXPORT_CLASS(acquisition::capture_nodelet, nodelet::Nodelet)
